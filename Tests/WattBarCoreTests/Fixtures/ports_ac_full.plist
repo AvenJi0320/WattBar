@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>ConnectionActive</key>
+		<true/>
+		<key>PortNumber</key>
+		<integer>1</integer>
+		<key>TransportsActive</key>
+		<array>
+			<string>CC</string>
+			<string>USB2</string>
+			<string>DisplayPort</string>
+		</array>
+	</dict>
+	<dict>
+		<key>ConnectionActive</key>
+		<true/>
+		<key>PortNumber</key>
+		<integer>2</integer>
+		<key>TransportsActive</key>
+		<array>
+			<string>CC</string>
+			<string>USB2</string>
+		</array>
+	</dict>
+	<dict>
+		<key>ConnectionActive</key>
+		<false/>
+		<key>PortNumber</key>
+		<integer>3</integer>
+		<key>TransportsActive</key>
+		<array/>
+	</dict>
+</array>
+</plist>

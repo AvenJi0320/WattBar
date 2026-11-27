@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>IORegistryEntryChildren</key>
+		<array>
+			<dict>
+				<key>IORegistryEntryChildren</key>
+				<array>
+					<dict>
+						<key>IORegistryEntryChildren</key>
+						<array>
+							<dict>
+								<key>IORegistryEntryChildren</key>
+								<array>
+									<dict>
+										<key>IORegistryEntryChildren</key>
+										<array>
+											<dict>
+												<key>IORegistryEntryChildren</key>
+												<array>
+													<dict>
+														<key>USB Product Name</key>
+														<string>USB 10_100_1000 LAN</string>
+														<key>UsbPowerSinkAllocation</key>
+														<integer>350</integer>
+														<key>kUSBProductString</key>
+														<string>USB 10/100/1000 LAN</string>
+													</dict>
+												</array>
+											</dict>
+										</array>
+									</dict>
+								</array>
+								<key>USB Product Name</key>
+								<string>USB2.0 Hub</string>
+								<key>kUSBProductString</key>
+								<string>USB2.0 Hub</string>
+							</dict>
+						</array>
+					</dict>
+				</array>
+			</dict>
+		</array>
+		<key>USB Product Name</key>
+		<string>USB2.1 Hub</string>
+		<key>kUSBProductString</key>
+		<string>USB2.1 Hub</string>
+	</dict>
+	<dict>
+		<key>USB Product Name</key>
+		<string>EarPods</string>
+		<key>UsbPowerSinkAllocation</key>
+		<integer>300</integer>
+		<key>kUSBProductString</key>
+		<string>EarPods</string>
+	</dict>
+</array>
+</plist>
