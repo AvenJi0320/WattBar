@@ -352,11 +352,18 @@ WattBarCoreTests ─→ WattBarCore
 ```text
 WattBar/
 ├─ Package.swift
+├─ README.md
 ├─ SPEC.md
+├─ Assets/
+│  ├─ AppIcon.icns                 // 由 make-icon.sh 生成，bundle.sh 复制进 .app
+│  ├─ AppIcon.png                  // 1024 px 预览图，README 使用
+│  └─ screenshot-{light,dark}.png  // README 截图，由 --render-panel 生成
 ├─ scripts/
 │  ├─ bundle.sh                    // 打包 WattBar.app 并做 ad-hoc 签名
 │  ├─ capture-fixtures.sh          // 采集真实 ioreg 数据并脱敏，生成测试 fixture
 │  ├─ sanitize-fixture.swift       // fixture 白名单过滤（去除序列号、UUID、进程名）
+│  ├─ make-icon.swift              // 用 CoreGraphics 绘制 App 图标
+│  ├─ make-icon.sh                 // 生成 Assets/AppIcon.icns 和 AppIcon.png
 │  └─ swiftw.sh                    // 在受限沙箱中运行 SwiftPM（缓存重定向到 /tmp）
 ├─ Sources/
 │  ├─ CSMC/
@@ -954,6 +961,7 @@ open build/WattBar.app
    - `CFBundleIdentifier`：默认 `io.github.wattbar.WattBar`，可以用环境变量 `WATTBAR_BUNDLE_ID` 覆盖
    - `CFBundleExecutable = WattBar`
    - `LSUIElement = true`
+   - `CFBundleIconFile = AppIcon`（从 `Assets/AppIcon.icns` 复制到 `Contents/Resources`）
    - `LSMinimumSystemVersion = 14.0`
    - `CFBundleShortVersionString = 0.1.0`
 4. 运行 `codesign --force --sign - build/WattBar.app`。
@@ -1009,3 +1017,13 @@ scripts/bundle.sh && open build/WattBar.app         # 打包并启动
 - 插拔电源，补采 `ac_charging` 和 `battery` fixture，并把对应测试改成读 fixture。
 - 手动点开面板，测面板打开时的 `footprint` 和 CPU。
 - 给 USB-C 设备供电（例如给手机充电），确认 `PowerOutDetails` 的位置和键名（第 13 节）。
+
+### 14.4 App 图标
+
+- 图标由 `scripts/make-icon.swift` 用纯 CoreGraphics 绘制，不依赖任何外部图片：
+  - 深靛蓝渐变的圆角方块，顶部带一层淡高光
+  - 三段式 270° 圆弧，颜色依次为 cyan、indigo、orange，对应屏幕、电脑、外接设备
+  - 中间是带金色光晕的闪电，填充渐变从浅黄到橙
+- 修改图标后，在普通终端运行 `scripts/make-icon.sh`，然后重新运行 `scripts/bundle.sh`。
+  - 在受限沙箱中，`iconutil` 会报 `Invalid Iconset`。
+- 修改面板 UI 后，用 `WattBar --render-panel Assets/screenshot-light.png charging` 和 `... screenshot-dark.png charging-dark` 更新 README 截图。
