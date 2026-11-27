@@ -8,10 +8,12 @@
   一个原生的 macOS 菜单栏功耗监视器：查看充电功率，以及屏幕、电脑本体、外接设备各自消耗了多少电。
 </p>
 
-<p align="center">
-  <img src="Assets/screenshot-light.png" width="420" alt="浅色模式">
-  <img src="Assets/screenshot-dark.png" width="420" alt="深色模式">
-</p>
+<table align="center">
+  <tr>
+    <td align="center" width="50%"><img src="Assets/screenshot-light.png" alt="浅色模式"><br><sub>浅色模式</sub></td>
+    <td align="center" width="50%"><img src="Assets/screenshot-dark.png" alt="深色模式"><br><sub>深色模式</sub></td>
+  </tr>
+</table>
 
 ## 功能
 
