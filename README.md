@@ -33,6 +33,18 @@
 - 桌面 Mac（没有电池）会显示“此 Mac 不支持”。Intel Mac 没有测试过。
 - 编译需要 Xcode 和 Swift 6 工具链。
 
+## 安装
+
+1. 从 Releases 下载 `WattBar-<版本>.dmg`，双击打开。
+2. 把 `WattBar.app` 拖到旁边的「Applications」文件夹。
+3. 第一次打开时，macOS 会提示“无法验证开发者”（app 没有经过 Apple 公证）。到「系统设置 → 隐私与安全性」，点击「仍要打开」。
+
+也可以在终端里解除隔离：
+
+```bash
+xattr -dr com.apple.quarantine /Applications/WattBar.app
+```
+
 ## 编译与运行
 
 ```bash
@@ -44,6 +56,12 @@ open build/WattBar.app
 ```
 
 想长期使用，可以把 `build/WattBar.app` 拖到「应用程序」，然后右键闪电图标，勾选「登录时启动」。
+
+自己打包 DMG：
+
+```bash
+./scripts/make-dmg.sh         # 生成 build/WattBar-<版本>.dmg，内含 Applications 快捷方式和 LICENSE
+```
 
 ## 用法
 
@@ -100,3 +118,7 @@ scripts/make-icon.sh                # 重新生成 App 图标
 
 - 在 Codex 等受限沙箱中，用 `scripts/swiftw.sh build|test` 代替 `swift build|test`。
 - 完整的设计与实现规格见 [SPEC.md](SPEC.md)。
+
+## 许可证
+
+[MIT](LICENSE)
