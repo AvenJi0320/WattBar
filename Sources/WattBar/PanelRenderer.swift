@@ -9,15 +9,9 @@ enum PanelRenderer {
         store.loadPreview(snapshot: snapshot(for: scenario))
 
         let isDark = scenario.hasSuffix("-dark")
-        let content = Group {
-            if isDark {
-                PowerPanelView(store: store)
-                    .background(Color(nsColor: .windowBackgroundColor))
-            } else {
-                PanelChrome(store: store).padding(24)
-            }
-        }
-        .environment(\.colorScheme, isDark ? .dark : .light)
+        let content = PanelChrome(store: store)
+            .padding(24)
+            .environment(\.colorScheme, isDark ? .dark : .light)
         let renderer = ImageRenderer(content: content)
         renderer.scale = 2
         guard let image = renderer.nsImage,
